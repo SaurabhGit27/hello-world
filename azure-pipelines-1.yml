@@ -18,8 +18,9 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- task: PublishBuildArtifacts@1
+- task: AzurePowerShell@5
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    azureSubscription: 'Free Trial (f1e805f7-af66-4c1a-9f8f-4c695ced1b28)'
+    ScriptType: 'InlineScript'
+    Inline: 'echo Hello, world!'
+    azurePowerShellVersion: 'LatestVersion'
